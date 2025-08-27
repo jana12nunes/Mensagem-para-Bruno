@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Para Bruno 💙</title>
+  <meta name="description" content="Mensagem especial para Bruno" />
+  <meta name="theme-color" content="#ff7aa2" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💙</text></svg>">
+  <style>
+    :root{--bg1:#0f0c29;--bg2:#302b63;--bg3:#24243e;--text:#ffffff;--accent:#ff7aa2;}
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0}
+    body{font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans";
+          display:flex;align-items:center;justify-content:center;
+          background: linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+          color:var(--text);overflow:hidden;}
+    .card{position:relative;max-width:680px;width:92%;padding:32px 28px;border-radius:20px;
+          background: rgba(255,255,255,0.06);backdrop-filter: blur(8px);
+          box-shadow: 0 20px 60px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.12);
+          text-align:center;animation: pop 700ms ease both;}
+    @keyframes pop{from{transform: translateY(10px) scale(.98); opacity:0} to{transform:translateY(0) scale(1); opacity:1}}
+    h1{margin:0 0 12px;font-size: clamp(26px, 5.6vw, 40px);line-height:1.1;letter-spacing:.3px;}
+    p.msg{margin:10px auto 18px;font-size: clamp(16px, 4vw, 20px);line-height:1.45;text-align:left;}
+    .signature{opacity:.85;font-size: clamp(14px, 3.6vw, 18px);margin-top:6px;text-align:right;}
+    .pill{display:inline-block;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.22);
+           text-decoration:none;color:var(--text);user-select:none;}
+    .pill:hover{background: rgba(255,255,255,.08)}
+    .hearts{position:fixed; inset:0; pointer-events:none; overflow:hidden;}
+    .heart{position:absolute; bottom:-40px; font-size:22px; animation: rise linear forwards;}
+    @keyframes rise{to{ transform: translateY(-110vh) translateX(var(--x)); opacity:0;}}
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true" id="hearts"></div>
+  <main class="card" role="main" aria-live="polite">
+    <h1>Bruno Steven Pinto Da Cruz 💙</h1>
+    <p class="msg">
+Tens uma namorada programadora então vai te habituando.<br><br>
+
+Sabe, amor, o que sinto por ti não precisa de datas para existir. É constante, silencioso e profundo. Em cada gesto teu encontro paz, em cada palavra teu carinho. Obrigada por transformares a minha vida só por seres quem és.<br><br>
+
+O que sinto por ti não depende de presentes ou palavras bonitas. É algo que cresce a cada olhar, cada gesto, cada momento que passamos juntos. E eu quero que cresça sempre, contigo.<br><br>
+
+Só quero que te lembres e nunca te esqueças do quão importante e especial és para mim.<br><br>
+
+São exatamente 257 dias do teu lado e eu só me arrependo de não ter dado o sim de primeira mas acredito que tudo acontece como deve acontecer, o mais importante é que estamos juntos e eu tenho um namorado GATOOOOO ( de corpo , mente , coração e alma ).<br><br>
+
+Que Deus te guarde sempre meu amor.
+    </p>
+    <div class="signature">— Janaína 💖</div>
+    <div style="margin-top:18px;">
+      <button class="pill" id="loveBtn" type="button" aria-label="Enviar muitos corações">Encher a tela de corações</button>
+    </div>
+  </main>
+  <script>
+    const container = document.getElementById('hearts');
+    const emojis = ["💙","💖","💜","❤️","🩷"];
+    function spawnHearts(n=16){
+      for(let i=0;i<n;i++){
+        const s = document.createElement('div');
+        s.className = 'heart';
+        s.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+        const left = Math.random()*100;
+        const dur = 5 + Math.random()*5;
+        const delay = Math.random()*0.8;
+        const drift = (Math.random()*120 - 60) + 'px';
+        s.style.left = left + 'vw';
+        s.style.animationDuration = dur + 's';
+        s.style.animationDelay = delay + 's';
+        s.style.setProperty('--x', drift);
+        container.appendChild(s);
+        setTimeout(()=> s.remove(), (dur+1)*1000);
+      }
+    }
+    document.getElementById('loveBtn').addEventListener('click', ()=> spawnHearts(28));
+    setInterval(()=>spawnHearts(6), 3000);
+    spawnHearts(18);
+  </script>
+</body>
+</html>
